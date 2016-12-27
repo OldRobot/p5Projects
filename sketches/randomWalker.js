@@ -1,1 +1,4 @@
 //randomWalker
+void setup(){
+
+}
