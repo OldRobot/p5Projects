@@ -15,11 +15,11 @@ function setup(){
 function draw(){
 background(50);
 for (var i=0;i<10;i++){
-
-gravity = createVector(0,0.1);
-m[i].force(gravity);
+var mm = m[i].mass;
+gravity = createVector(0,0.1*mm);
+m[i].applyForce(gravity);
 wind = createVector(0.02,0);
-m[i].force(wind);
+m[i].applyForce(wind);
 
 m[i].bounceEdges();
 m[i].update();
@@ -42,15 +42,15 @@ this.update = function(){
   this.acceleration.mult(0);//reset acceleration each frame
 }
 
-this.force = function(force){
+this.applyForce = function(force){
 f= force.copy();
-f = f.div(this.mass);
+f.div(this.mass);
 this.acceleration.add(f);
 }
 
 this.display = function(){
-  noStroke();
-  fill(200);
+  //noStroke();
+  fill(200,200,200,200);
   ellipse(this.location.x,this.location.y,this.r,this.r);
 }
 
@@ -70,13 +70,32 @@ this.wrapEdges = function(){
 }
 
 this.bounceEdges = function(){
-  if (this.location.x>width || this.location.x<0){
-    this.velocity.x = this.velocity.x * -1;
+
+  if (this.location.x>width){
+    this.location.x=width;
+    this.velocity.x *= -1;
+  }else if(this.location.x<0) {
+    this.location.x = 0;
+    this.velocity.x *= -1;
   }
 
-  if (this.location.y>height || this.location.y<0){
-    this.velocity.y= this.velocity.y *-1;
+  if (this.location.y>height){
+    this.location.y=height;
+    this.velocity.y *= -0.75; //loss of energy
+  }else if(this.location.y<0) {
+    this.location.y = 0;
+    this.velocity.y *= -1;
+
   }
+
+
+  // if (this.location.x>width || this.location.x<0){
+  //     this.velocity.x *= -1;
+  // }
+  //
+  // if (this.location.y>height || this.location.y<0){
+  //   this.velocity.y *= -1;
+  // }
 
 
 }
