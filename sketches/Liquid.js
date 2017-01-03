@@ -20,7 +20,8 @@ this.display = function(){
 
 }
 
-this.isInLiquid(position){
+this.isInLiquid = function(position){
 
   return false;
+}
 }
