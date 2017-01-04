@@ -20,8 +20,12 @@ this.display = function(){
 
 }
 
-this.isInLiquid = function(position){
-
-  return false;
-}
+  this.isInLiquid = function(position){
+      if(position.x>this.x && position.x<this.x+this.w){
+        if(position.y>this.y && position.y<this.y+this.h){
+          return true;
+        }
+      }
+    return false;
+  }
 }
