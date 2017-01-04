@@ -82,6 +82,5 @@ this.bounceEdges = function(){
   // if (this.location.y>height || this.location.y<0){
   //   this.velocity.y *= -1;
   // }
-
-
+}
 }
