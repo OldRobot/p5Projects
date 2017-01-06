@@ -15,10 +15,14 @@ c = new caret();
 }
 
 function caret(){
-  this.x=12*17;
+  this.x=0;
   this.line=18;
   this.timer=0;
   this.tInterval=80;
+
+this.inc = function(){
+  this.x+=12;
+}
 
 this.draw = function(){
   fill(255);
@@ -27,7 +31,7 @@ this.draw = function(){
     fill(55);
 
   }
-  rect(this.x+2,this.line,8,14);
+  rect(this.x+2,this.line,8,12);
 
 
 this.timer++;
@@ -35,6 +39,10 @@ if(this.timer>this.tInterval){
   this.timer=0;
 }
 }
+}
+
+function keyPressed() {
+c.inc();
 }
 
 function draw() {
