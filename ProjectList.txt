@@ -1,5 +1,5 @@
 Liat of projects in this Repo:
 
-1.
-2.
+1. Random Walker
+2. Vector Mover
 3.
