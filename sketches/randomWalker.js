@@ -22,7 +22,7 @@ function draw(){
 function walker(){
 this.x = width/2;
 this.y = height/2;
-this.s = 8 //radius
+this.s = 10 //radius
 
 this.update = function(){
 
